@@ -1,0 +1,632 @@
+/* Reset e Estilos Gerais */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #20B2AA
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+}
+
+/* Títulos responsivos */
+h2 {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    line-height: 1.2;
+    text-shadow:
+        0 0 3px #000,
+        0 0 10px #000;
+}
+
+
+
+/* Header */
+header {
+    background-color: rgba(0, 0, 0, 0.9);
+    /* Preto transparente */
+    color: darkcyan;
+    position: fixed;
+    /* Fixa no topo */
+    width: 100%;
+    z-index: 1000;
+    /* Garante que o header esteja acima de outros elementos */
+    outline: #ccc 1px solid;
+}
+
+.bottom {
+    color: #ccc;
+}
+
+.logo-nav-container {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    /* Sombra mais suave */
+    display: flex;
+    padding: 15px 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo responsivo */
+.logo {
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    padding: 5px 0;
+}
+
+.logo .top,
+.logo .bottom {
+    display: flex;
+    gap: 5px;
+}
+
+.logo .bottom {
+    font-size: clamp(0.7rem, 2vw, 0.9rem);
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.logo .top .acr {
+    color: #20B2AA;
+    animation-delay: 0.2s;
+}
+
+.logo .top .glass {
+    color: #20B2AA;
+    animation-delay: 0.4s;
+}
+
+.logo .bottom .vidros {
+    color: #fff;
+    animation-delay: 0.6s;
+}
+
+.logo .bottom .para {
+    color: #fff;
+    animation-delay: 0.8s;
+}
+
+.logo .bottom .construcao {
+    color: #fff;
+    animation-delay: 1s;
+}
+
+.logo .bottom .civil {
+    color: #fff;
+    animation-delay: 1.2s;
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 2.1rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: gold;
+    /* Cor dourada para links ao passar o mouse */
+    text-decoration: underline;
+    transform: scale(1.05);
+    /* Leve zoom no link ao passar o mouse */
+}
+
+/* Correção para menu móvel */
+#navLinks.active {
+    display: block;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    width: 200px;
+}
+
+#navLinks.active ul {
+    flex-direction: column;
+}
+
+#navLinks.active ul li {
+    margin: 10px 0;
+}
+
+/* Responsividade */
+@media (max-width: 840px) {
+    .menu-toggle {
+        display: block;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        color: #fff;
+    }
+
+    nav {
+        display: none;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul li {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-nav-container {
+
+        border: none;
+        /* Remove a borda em telas menores */
+        width: 95%;
+        flex-wrap: wrap;
+        padding: 10px 15px;
+    }
+
+    .logo {
+        margin-bottom: 5px;
+    }
+
+    .hero-content {
+        width: 90%;
+    }
+
+    .about-item {
+        min-width: 250px;
+    }
+
+    .service-category {
+        min-width: 200px;
+    }
+
+    form {
+        padding: 30px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+
+
+    .hero-content h2 {
+        margin-bottom: 20px;
+    }
+
+    .cta-button {
+        padding: 10px 20px;
+    }
+
+    .about-grid,
+    .services-list,
+    .additional-services {
+        gap: 15px;
+    }
+
+    .about-item-content {
+        padding: 15px;
+    }
+
+    .contact h3 {
+        font-size: 1.8rem !important;
+        /* Força a aplicar */
+        text-align: center;
+    }
+}
+
+.nav-button {
+    background-color: darkcyan;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+/* Seção Hero */
+#home.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    background: #f4f4f4;
+    /* Cor de fundo leve */
+    outline: #ccc 1px solid;
+}
+
+.hero-slideshow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    outline: #ccc 1px solid;
+}
+
+.hero-slideshow img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    /* Adicionada transição de transformação */
+}
+
+.hero-slideshow img.active {
+    opacity: 1;
+}
+
+.hero-slideshow .image-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* Aumentado a opacidade da máscara */
+    pointer-events: none;
+    z-index: 2;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+    z-index: 3;
+    animation: fadeIn 1s ease-in;
+
+
+}
+
+.hero-content h2 {
+    font-size: clamp(2rem, 6vw, 2.5rem);
+    margin-bottom: 15px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #20B2AA;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    /* Bordas arredondadas mais suaves */
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: .1rem solid #fff;
+    text-shadow:
+        0 0 1px #000,
+        0 0 2px #000;
+}
+
+.cta-button:hover {
+    color: gold;
+    background-color: #1b8a80;
+    transform: scale(1.05);
+    /* Leve zoom no botão ao passar o mouse */
+}
+
+/* Seção Sobre */
+.about {
+    padding: 60px 0;
+    /* Aumentado o padding para mais espaço */
+}
+
+/* Estilizando o título da seção Sobre Nós */
+.about h2 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 40px;
+
+}
+
+.about-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.about-item {
+    flex: 1;
+    min-width: 300px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    /* Sombra mais intensa para profundidade */
+    margin-bottom: 20px;
+    background: #fff;
+    border-radius: 10px;
+    /* Bordas mais arredondadas */
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Adicionada transição de sombra */
+}
+
+.about-item:hover {
+    transform: translateY(-10px);
+    /* Leve elevação ao passar o mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    /* Sombra mais intensa ao passar o mouse */
+}
+
+.about-item img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.about-item:hover img {
+    transform: scale(1.1);
+    /* Leve zoom na imagem ao passar o mouse */
+}
+
+.about-item-content {
+    padding: 20px;
+    /* Aumentado o padding interno */
+}
+
+.about-item-content h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    /* Ajustado o tamanho da fonte do título */
+}
+
+/* Estilo geral da seção de serviços */
+.services {
+    background-color: darkcyan;
+    padding: 60px 0;
+    outline: #ccc 1px solid;
+}
+
+.services .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.services h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #fff;
+    text-shadow:
+        0 0 1px #000,
+        0 0 5px #000;
+}
+
+.services-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.service-category {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 300px;
+    text-align: center;
+    flex: 1;
+    min-width: 250px;
+}
+
+.category-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.service-category h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.service-category p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.service-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.service-category ul li {
+    margin-bottom: 10px;
+}
+
+/* Estilo para a seção de serviços adicionais */
+.additional-services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+/* Seção Contato */
+.contact {
+    padding: 60px 0;
+    /* Aumentado o padding para mais espaço */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 700px;
+    box-sizing: border-box;
+    margin: auto;
+    color: #fff;
+    font-weight: bolder;
+    padding: 50px 0;
+    /* Aumentado o espaçamento entre os campos */
+}
+
+input,
+textarea {
+    padding: 13px;
+    /* Aumentado o padding interno */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #20B2AA;
+    box-shadow: 0 0 5px rgba(32, 178, 170, 0.5);
+    /* Adicionada sombra ao focar */
+    outline: none;
+}
+
+button {
+    padding: 12px;
+    background-color: darkcyan;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: 0.1em solid #fff;
+}
+
+button:hover {
+    background-color: #20B2AA;
+    transform: scale(1.0);
+    /* Leve zoom no botão ao passar o mouse */
+}
+
+.contact h3 {
+    color: #fff;
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: center;
+    text-shadow:
+        0 0 1px #000,
+        0 0 5px #000;
+}
+
+.whatsapp-gradient {
+    position: fixed;
+    bottom: 30px;
+    right: 12px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease;
+    z-index: 1000;
+    animation: pulse 2s infinite;
+}
+
+/* Animação de Pulsação */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Animação de Vibração ao passar o mouse */
+.whatsapp-gradient:hover {
+    animation: shake 0.5s infinite;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Animação de Vibração */
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+.whatsapp-icon {
+    width: 35px;
+    height: 35px;
+}
+
+/* Rodapé */
+footer {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5), rgba(0, 139, 139, 0.9));
+    color: #ffffff;
+    text-align: center;
+    padding: 15px 20px;
+    border-top: 1px solid #0000;
+    margin-top: 20px;
+    outline: #ccc 1px solid;
+}
+
+footer p {
+    margin: 0;
+    line-height: 1.5;
+    font-weight: normal;
+    text-transform: none;
+    letter-spacing: 0.5px;
+}
+
+/* Para fadein na página */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
