@@ -61,8 +61,3 @@ Desenvolvido com foco em qualidade e experiência do usuário por Ricardo Adolfo
 
 <img src="https://github.com/ric-adolfo/Site-Vidra-aria/blob/main/assets/img%20home.jpg?raw=true"/>
 
-<img src="https://github.com/ric-adolfo/Novo-Site-Vidra-aria/blob/main/assets/img%20sobre%20%20nos.jpg?raw=true"/>
-
-<img src="https://github.com/ric-adolfo/Novo-Site-Vidra-aria/blob/main/assets/img%20nosso%20servi%C3%A7os.jpg?raw=true"/>
-
-<img src="https://github.com/ric-adolfo/Novo-Site-Vidra-aria/blob/main/assets/img%20contato.jpg?raw=true"/>
